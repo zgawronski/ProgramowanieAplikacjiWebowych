@@ -8,12 +8,31 @@ class StatsApp {
     minInput: HTMLInputElement;
     maxInput: HTMLInputElement;
 
+    i0Input: HTMLInputElement;
+    container: HTMLElement;
+
     constructor (){
         this.startApp();
     }
     startApp(){
         this.getInput()
         this.watchInputValues();
+    }
+
+    createInput(){
+        while(this.container?.hasChildNodes()){
+            this.container?.removeChild(this.container?.lastChild);
+        }
+        const temp = +this.i0Input.value;
+        for(let i=0; i<temp; i++){
+            const p = document.createTextNode("Value: ");
+            this.container?.appendChild(p);
+            let input = document.createElement("input");
+            input.type = "text";
+            input.id = "i"+(i+1);
+            this.container?.appendChild(input);
+            this.container?.appendChild(document.createElement("br"));
+        }
     }
     getInput(){
         this.i1Input = document.querySelector('#i1');
@@ -24,12 +43,16 @@ class StatsApp {
         this.avgInput = document.querySelector('#avg');
         this.minInput = document.querySelector('#min');
         this.maxInput = document.querySelector('#max');
+        this.container = document.getElementById("container");
+        this.i0Input = document.querySelector('#i0');
     }
     watchInputValues(){
         this.i1Input.addEventListener('input', () => this.computeData());
         this.i2Input.addEventListener('input', () => this.computeData());
         this.i3Input.addEventListener('input', () => this.computeData());
         this.i4Input.addEventListener('input', () => this.computeData());
+        this.i0Input.addEventListener('input', () => this.createInput());
+        this.i0Input.addEventListener('input', () => this.computeData());
     }
 
     computeData(){
@@ -37,7 +60,8 @@ class StatsApp {
         const i2 = +this.i2Input.value;
         const i3 = +this.i3Input.value;
         const i4 = +this.i4Input.value;
-        const sum = i1 + i2 + i3 + i4;
+        const i0 = +this.i0Input.value;
+        const sum = i1 + i2 + i3 + i4 + i0;
         const avg = sum / 4;
 
         const min = Math.min(i1, i2, i3, i4);
