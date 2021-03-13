@@ -104,7 +104,7 @@ var StatsApp = /** @class */ (function () {
     };
     StatsApp.prototype.showStats = function (sum, avg, min, max) {
         if (!isNaN(sum) || isNaN(avg) || isNaN(min) || isNaN(max)) {
-            var el = document.getElementById('stats-data');
+            var el = document.getElementById('hid');
             var el1 = document.getElementById('lSum');
             var el2 = document.getElementById('lAvg');
             var el3 = document.getElementById('lMin');
@@ -122,7 +122,7 @@ var StatsApp = /** @class */ (function () {
             this.maxInput.value = max.toString();
         }
         else {
-            var el = document.getElementById('stats-data');
+            var el = document.getElementById('hid');
             var el1 = document.getElementById('lSum');
             var el2 = document.getElementById('lAvg');
             var el3 = document.getElementById('lMin');

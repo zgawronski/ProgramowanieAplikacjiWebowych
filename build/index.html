@@ -5,21 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="input-maker">
-        <input type="number" id="i0">
-        <div class= "column" id="container"></div>
+    <div class=all>
+        <div class="input-maker">
+            <input type="number" id="i0">
+            <div class= "column" id="container"></div>
 
-        <label id="correct" style="visibility: hidden;">Waiting for correct data</label>
+            <label id="correct" style="visibility: hidden;">Waiting for correct data</label>
+        </div>
+
+        <div class="column">
+            <label id="lSum">Sum: </label>
+            <label id="lAvg">Avg: </label>
+            <label id="lMin">Min: </label>
+            <label id="lMax">Max: </label>
+        </div>
+
+        <div class="column" id"hid">
+            <input type="text" id="sum">
+            <input type="text" id="avg">
+            <input type="text" id="min">
+            <input type="text" id="max">
+        </div>
     </div>
-
-    <div class="stats-data">
-        <label id="lSum">Sum:  </label><input type="text" id="sum"></br></br>
-        <label id="lAvg">Avg:  </label><input type="text" id="avg"></br></br>
-        <label id="lMin">Min:  </label><input type="text" id="min"></br></br>
-        <label id="lMax">Max:  </label><input type="text" id="max"></br></br>
-    </div>
-
     <script src="index.js"></script>
 </html>

@@ -120,7 +120,7 @@ class StatsApp {
 
     showStats(sum: number, avg: number, min: number, max: number){
         if(!isNaN(sum) || isNaN(avg) || isNaN(min) || isNaN(max)){
-            let el = document.getElementById('stats-data');
+            let el = document.getElementById('hid');
             let el1 = document.getElementById('lSum');
             let el2 = document.getElementById('lAvg');
             let el3 = document.getElementById('lMin');
@@ -141,7 +141,7 @@ class StatsApp {
             this.maxInput.value = max.toString();
         }
         else{
-            let el = document.getElementById('stats-data');
+            let el = document.getElementById('hid');
             let el1 = document.getElementById('lSum');
             let el2 = document.getElementById('lAvg');
             let el3 = document.getElementById('lMin');
