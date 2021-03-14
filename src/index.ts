@@ -7,7 +7,7 @@ class StatsApp {
     maxInput: HTMLInputElement;
 
     i0Input: HTMLInputElement;
-    container: HTMLElement;
+    icontainer: HTMLElement;
 
     constructor (){
         this.startApp();
@@ -15,14 +15,14 @@ class StatsApp {
     startApp(){
         this.getInput()
         this.i0Input = document.querySelector('#i0');
-        this.container = document.getElementById("container");
+        this.icontainer = document.getElementById("icontainer");
         this.watchInputValues();
     }
 
     createInput(){
-        while(this.container?.hasChildNodes()){
-            this.container?.removeChild(this.container?.lastChild);
-            this.dArray =[];
+        while(this.icontainer?.hasChildNodes()){
+            this.icontainer?.removeChild(this.icontainer?.lastChild);
+            this.dArray = [];
             const temp:string = "0";
             this.sumInput.value = temp;
             this.avgInput.value = temp;
@@ -31,27 +31,29 @@ class StatsApp {
         }
         const temp = +this.i0Input.value;
 
-        for(let i = 0; i < temp; i++){
+        for(let i = 0; i < temp; i++ ){
             const p = document.createElement("label");
-            p.textContent = "Value:";
-            p.id = "label" + (i+1);
-            this.container?.appendChild(p);
+            p.textContent="Value: ";
+            p.id = "label" + (i + 1);
+            this.icontainer?.appendChild(p);
 
-            let input = document.createElement("input");
+            var input = document.createElement("input");
             input.type = "text";
-            input.id = "input"+(i+1);
-            this.container?.appendChild(input);
+            input.id = "input" + (i + 1);
+            input.className = "input";
+            this.icontainer?.appendChild(input);
 
-            let button = document.createElement("button");
+            var button = document.createElement("button");
             button.textContent = "Delete";
-            button.id = (i+1).toString();
+            button.id = (i + 1).toString();
 
-            button.addEventListener('click', () => {
-                if(this.container.childElementCount>4){
-                    var d = document.getElementById("input"+(i+1));
-                    var l = document.getElementById("label"+(i+1));
-                    var b = document.getElementById((i+1).toString());
-                    var dd = document.getElementById("container");
+            button.addEventListener('click',() => {
+                if(this.icontainer.childElementCount>4){
+                    var d = document.getElementById("input"+(i + 1));
+                    var l = document.getElementById("label"+(i + 1));
+                    var b = document.getElementById((i + 1).toString());
+                    var dd = document.getElementById("icontainer");
+
                     dd.removeChild(d);
                     dd.removeChild(l);
                     dd.removeChild(b);
@@ -69,21 +71,22 @@ class StatsApp {
                 }
             });
 
-            this.container?.appendChild(button);
+            this.icontainer?.appendChild(button);
 
-            let br = document.createElement("br")
-            br.id = "br"+(i+1);
-            this.container?.appendChild(br);
+            var br = document.createElement("br")
+            br.id = "br"+(i + 1);
+            this.icontainer?.appendChild(br);
         }
         this.getInput();
         this.watchInputValues();
     }
+
     getInput(){
         this.i0Input = document.querySelector('#i0');
-        this.container = document.getElementById("container");
+        this.icontainer = document.getElementById("icontainer");
 
-        if(this.container.hasChildNodes()){
-            for(let i = 0; i < +this.i0Input.value; i++){
+        if(this.icontainer.hasChildNodes()){
+            for(var i = 0; i < +this.i0Input.value; i++){
                 const temp = "#input" + (i+1);
 
                 this.dArray.push(document.querySelector(temp))
@@ -98,17 +101,17 @@ class StatsApp {
 
     watchInputValues(){
         this.i0Input.addEventListener('input', () => this.createInput());
-        if(this.container.hasChildNodes()){
-            for(let i = 0; i < +this.i0Input.value; i++){
+        if(this.icontainer.hasChildNodes()){
+            for(var i = 0; i < +this.i0Input.value; i++){
                 this.dArray[i]?.addEventListener('input', () => this.computeData());
             }
         }
     }
 
     computeData(){
-        let datArray:number[]= [];
-        let sum:number = 0;
-        for(let i = 0; i< +this.i0Input.value; i++){
+        var datArray:number[]= [];
+        var sum:number = 0;
+        for(var i = 0; i< +this.i0Input.value; i++){
             datArray[i] = +this.dArray[i].value;
             sum += datArray[i];
         }
@@ -120,13 +123,13 @@ class StatsApp {
 
     showStats(sum: number, avg: number, min: number, max: number){
         if(!isNaN(sum) || isNaN(avg) || isNaN(min) || isNaN(max)){
-            let el = document.getElementById('hid');
-            let el1 = document.getElementById('lSum');
-            let el2 = document.getElementById('lAvg');
-            let el3 = document.getElementById('lMin');
-            let el4 = document.getElementById('lMax');
+            var el = document.getElementById('hid');
+            var el1 = document.getElementById('lSum');
+            var el2 = document.getElementById('lAvg');
+            var el3 = document.getElementById('lMin');
+            var el4 = document.getElementById('lMax');
 
-            let elGood = document.getElementById('correct')
+            var elGood = document.getElementById('correct')
             elGood.style.visibility = "hidden";
 
             el.style.visibility = "visible";
@@ -141,13 +144,13 @@ class StatsApp {
             this.maxInput.value = max.toString();
         }
         else{
-            let el = document.getElementById('hid');
-            let el1 = document.getElementById('lSum');
-            let el2 = document.getElementById('lAvg');
-            let el3 = document.getElementById('lMin');
-            let el4 = document.getElementById('lMax');
+            var el = document.getElementById('hid');
+            var el1 = document.getElementById('lSum');
+            var el2 = document.getElementById('lAvg');
+            var el3 = document.getElementById('lMin');
+            var el4 = document.getElementById('lMax');
 
-            let elGood = document.getElementById('correct')
+            var elGood = document.getElementById('correct')
                 elGood.style.visibility = "visible";
 
             el.style.visibility = "hidden";

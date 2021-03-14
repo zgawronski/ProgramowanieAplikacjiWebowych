@@ -8,27 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class=all>
+    <div class="container">
         <div class="input-maker">
-            <input type="number" id="i0">
-            <div class= "column" id="container"></div>
+            <input type="number" id="i0" min="0">
+            <div class= "column" id="icontainer"></div>
 
             <label id="correct" style="visibility: hidden;">Waiting for correct data</label>
         </div>
 
-        <div class="column">
-            <label id="lSum">Sum: </label>
-            <label id="lAvg">Avg: </label>
-            <label id="lMin">Min: </label>
-            <label id="lMax">Max: </label>
-        </div>
-
-        <div class="column" id"hid">
-            <input type="text" id="sum">
-            <input type="text" id="avg">
-            <input type="text" id="min">
-            <input type="text" id="max">
+        <div class="column" id="hid">
+            <label id="lSum">Sum: </label> <input type="text" id="sum">
+            <label id="lAvg">Avg: </label><input type="text" id="avg">
+            <label id="lMin">Min: </label><input type="text" id="min">
+            <label id="lMax">Max: </label><input type="text" id="max">
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
 </html>

@@ -1,63 +1,141 @@
 var StatsApp = /** @class */ (function () {
     function StatsApp() {
+        this.dArray = [];
         this.startApp();
     }
     StatsApp.prototype.startApp = function () {
         this.getInput();
+        this.i0Input = document.querySelector('#i0');
+        this.icontainer = document.getElementById("icontainer");
         this.watchInputValues();
     };
     StatsApp.prototype.createInput = function () {
-        var _a, _b, _c, _d, _e;
-        while ((_a = this.container) === null || _a === void 0 ? void 0 : _a.hasChildNodes()) {
-            (_b = this.container) === null || _b === void 0 ? void 0 : _b.removeChild((_c = this.container) === null || _c === void 0 ? void 0 : _c.lastChild);
+        var _this = this;
+        var _a, _b, _c, _d, _e, _f, _g;
+        while ((_a = this.icontainer) === null || _a === void 0 ? void 0 : _a.hasChildNodes()) {
+            (_b = this.icontainer) === null || _b === void 0 ? void 0 : _b.removeChild((_c = this.icontainer) === null || _c === void 0 ? void 0 : _c.lastChild);
+            this.dArray = [];
+            var temp_1 = "0";
+            this.sumInput.value = temp_1;
+            this.avgInput.value = temp_1;
+            this.minInput.value = temp_1;
+            this.maxInput.value = temp_1;
         }
         var temp = +this.i0Input.value;
-        for (var i = 0; i < temp; i++) {
-            var input = document.createElement("input");
+        var _loop_1 = function (i) {
+            var p = document.createElement("label");
+            p.textContent = "Value: ";
+            p.id = "label" + (i + 1);
+            (_d = this_1.icontainer) === null || _d === void 0 ? void 0 : _d.appendChild(p);
+            input = document.createElement("input");
             input.type = "text";
-            input.id = "i" + (i + 1);
-            (_d = this.container) === null || _d === void 0 ? void 0 : _d.appendChild(input);
-            (_e = this.container) === null || _e === void 0 ? void 0 : _e.appendChild(document.createElement("br"));
+            input.id = "input" + (i + 1);
+            input.className = "input";
+            (_e = this_1.icontainer) === null || _e === void 0 ? void 0 : _e.appendChild(input);
+            button = document.createElement("button");
+            button.textContent = "Delete";
+            button.id = (i + 1).toString();
+            button.addEventListener('click', function () {
+                if (_this.icontainer.childElementCount > 4) {
+                    var d = document.getElementById("input" + (i + 1));
+                    var l = document.getElementById("label" + (i + 1));
+                    var b = document.getElementById((i + 1).toString());
+                    var dd = document.getElementById("icontainer");
+                    dd.removeChild(d);
+                    dd.removeChild(l);
+                    dd.removeChild(b);
+                    var val = +(_this.i0Input.value) - 1;
+                    _this.i0Input.value = val.toString();
+                    var brbr = document.getElementById("br" + (i + 1));
+                    dd.removeChild(brbr);
+                    _this.dArray.splice(i, 1);
+                    _this.computeData();
+                }
+                else {
+                    alert("There must be at least one input");
+                }
+            });
+            (_f = this_1.icontainer) === null || _f === void 0 ? void 0 : _f.appendChild(button);
+            br = document.createElement("br");
+            br.id = "br" + (i + 1);
+            (_g = this_1.icontainer) === null || _g === void 0 ? void 0 : _g.appendChild(br);
+        };
+        var this_1 = this, input, button, br;
+        for (var i = 0; i < temp; i++) {
+            _loop_1(i);
         }
+        this.getInput();
+        this.watchInputValues();
     };
     StatsApp.prototype.getInput = function () {
-        this.i1Input = document.querySelector('#i1');
-        this.i2Input = document.querySelector('#i2');
-        this.i3Input = document.querySelector('#i3');
-        this.i4Input = document.querySelector('#i4');
+        this.i0Input = document.querySelector('#i0');
+        this.icontainer = document.getElementById("icontainer");
+        if (this.icontainer.hasChildNodes()) {
+            for (var i = 0; i < +this.i0Input.value; i++) {
+                var temp = "#input" + (i + 1);
+                this.dArray.push(document.querySelector(temp));
+            }
+        }
         this.sumInput = document.querySelector('#sum');
         this.avgInput = document.querySelector('#avg');
         this.minInput = document.querySelector('#min');
         this.maxInput = document.querySelector('#max');
-        this.container = document.getElementById("container");
-        this.i0Input = document.querySelector('#i0');
     };
     StatsApp.prototype.watchInputValues = function () {
         var _this = this;
-        this.i1Input.addEventListener('input', function () { return _this.computeData(); });
-        this.i2Input.addEventListener('input', function () { return _this.computeData(); });
-        this.i3Input.addEventListener('input', function () { return _this.computeData(); });
-        this.i4Input.addEventListener('input', function () { return _this.computeData(); });
+        var _a;
         this.i0Input.addEventListener('input', function () { return _this.createInput(); });
-        this.i0Input.addEventListener('input', function () { return _this.computeData(); });
+        if (this.icontainer.hasChildNodes()) {
+            for (var i = 0; i < +this.i0Input.value; i++) {
+                (_a = this.dArray[i]) === null || _a === void 0 ? void 0 : _a.addEventListener('input', function () { return _this.computeData(); });
+            }
+        }
     };
     StatsApp.prototype.computeData = function () {
-        var i1 = +this.i1Input.value;
-        var i2 = +this.i2Input.value;
-        var i3 = +this.i3Input.value;
-        var i4 = +this.i4Input.value;
-        var i0 = +this.i0Input.value;
-        var sum = i1 + i2 + i3 + i4 + i0;
-        var avg = sum / 4;
-        var min = Math.min(i1, i2, i3, i4);
-        var max = Math.max(i1, i2, i3, i4);
+        var datArray = [];
+        var sum = 0;
+        for (var i = 0; i < +this.i0Input.value; i++) {
+            datArray[i] = +this.dArray[i].value;
+            sum += datArray[i];
+        }
+        var avg = sum / +this.i0Input.value;
+        var min = Math.min.apply(Math, datArray);
+        var max = Math.max.apply(Math, datArray);
         this.showStats(sum, avg, min, max);
     };
     StatsApp.prototype.showStats = function (sum, avg, min, max) {
-        this.sumInput.value = sum.toString();
-        this.avgInput.value = avg.toString();
-        this.minInput.value = min.toString();
-        this.maxInput.value = max.toString();
+        if (!isNaN(sum) || isNaN(avg) || isNaN(min) || isNaN(max)) {
+            var el = document.getElementById('hid');
+            var el1 = document.getElementById('lSum');
+            var el2 = document.getElementById('lAvg');
+            var el3 = document.getElementById('lMin');
+            var el4 = document.getElementById('lMax');
+            var elGood = document.getElementById('correct');
+            elGood.style.visibility = "hidden";
+            el.style.visibility = "visible";
+            el1.style.visibility = "visible";
+            el2.style.visibility = "visible";
+            el3.style.visibility = "visible";
+            el4.style.visibility = "visible";
+            this.sumInput.value = sum.toString();
+            this.avgInput.value = avg.toString();
+            this.minInput.value = min.toString();
+            this.maxInput.value = max.toString();
+        }
+        else {
+            var el = document.getElementById('hid');
+            var el1 = document.getElementById('lSum');
+            var el2 = document.getElementById('lAvg');
+            var el3 = document.getElementById('lMin');
+            var el4 = document.getElementById('lMax');
+            var elGood = document.getElementById('correct');
+            elGood.style.visibility = "visible";
+            el.style.visibility = "hidden";
+            el1.style.visibility = "hidden";
+            el2.style.visibility = "hidden";
+            el3.style.visibility = "hidden";
+            el4.style.visibility = "hidden";
+        }
     };
     return StatsApp;
 }());
