@@ -1,0 +1,24 @@
+body{
+    background-color: darkgrey;
+}
+.container{
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    display:flex;
+    justify-content: center;
+
+}
+audio{
+    border-style: ridge;
+    border-radius: 50%;
+    width: 150px;
+
+}
+button{
+    margin-left: auto;
+    margin-right: auto;
+    /* position: absolute; */
+    font-size: 15px;
+
+}
