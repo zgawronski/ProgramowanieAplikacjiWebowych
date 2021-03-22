@@ -32,9 +32,44 @@ function onKeyDown(ev: KeyboardEvent): void {
 }
 
 function playSound(key: string) {
-
-    clapAudio.currentTime = 0;
-    clapAudio.play();
+    switch(key){
+        case'q':
+            clapAudio.currentTime = 0;
+            clapAudio.play();
+            break;
+        case'w':
+            boomAudio.currentTime = 0;
+            boomAudio.play();
+            break;
+        case'e':
+            hihatAudio.currentTime = 0;
+            hihatAudio.play();
+            break;
+        case'a':
+            kickAudio.currentTime = 0;
+            kickAudio.play();
+            break;
+        case's':
+            openhatAudio.currentTime = 0;
+            openhatAudio.play();
+            break;
+        case'd':
+            rideAudio.currentTime = 0;
+            rideAudio.play();
+            break;
+        case'z':
+            snareAudio.currentTime = 0;
+            snareAudio.play();
+            break;
+        case'x':
+            tinkAudio.currentTime = 0;
+            tinkAudio.play();
+            break;
+        case'c':
+            tomAudio.currentTime = 0;
+            tomAudio.play();
+            break;
+    }
 }
 
 function onPlayChannel1(): void {
