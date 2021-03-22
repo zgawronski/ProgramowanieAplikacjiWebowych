@@ -25,7 +25,6 @@ function playSound(key) {
     switch (key) {
         case 'q':
         case 'Q':
-        case 'onclick':
             clapAudio.currentTime = 0;
             clapAudio.play();
             break;
