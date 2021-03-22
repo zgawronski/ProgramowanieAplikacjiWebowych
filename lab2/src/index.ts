@@ -1,5 +1,13 @@
 const channel1: any[] = [];
 const  clapAudio: HTMLAudioElement = document.querySelector('[data-sound="clap"]');
+const  boomAudio: HTMLAudioElement = document.querySelector('[data-sound="boom"]');
+const  hihatAudio: HTMLAudioElement = document.querySelector('[data-sound="hihat"]');
+const  kickAudio: HTMLAudioElement = document.querySelector('[data-sound="kick"]');
+const  openhatAudio: HTMLAudioElement = document.querySelector('[data-sound="openhat"]');
+const  rideAudio: HTMLAudioElement = document.querySelector('[data-sound="ride"]');
+const  snareAudio: HTMLAudioElement = document.querySelector('[data-sound="snare"]');
+const  tinkAudio: HTMLAudioElement = document.querySelector('[data-sound="tink"]');
+const  tomAudio: HTMLAudioElement = document.querySelector('[data-sound="tom"]');
 
 const playChannel1Btn: HTMLButtonElement = document.querySelector('#playChannel1');
 
