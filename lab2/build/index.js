@@ -24,38 +24,48 @@ function onKeyDown(ev) {
 function playSound(key) {
     switch (key) {
         case 'q':
+        case 'Q':
+        case 'onclick':
             clapAudio.currentTime = 0;
             clapAudio.play();
             break;
         case 'w':
+        case 'W':
             boomAudio.currentTime = 0;
             boomAudio.play();
             break;
         case 'e':
+        case 'E':
             hihatAudio.currentTime = 0;
             hihatAudio.play();
             break;
         case 'a':
+        case 'A':
             kickAudio.currentTime = 0;
             kickAudio.play();
             break;
         case 's':
+        case 'S':
             openhatAudio.currentTime = 0;
             openhatAudio.play();
             break;
         case 'd':
+        case 'D':
             rideAudio.currentTime = 0;
             rideAudio.play();
             break;
+        case 'z':
         case 'z':
             snareAudio.currentTime = 0;
             snareAudio.play();
             break;
         case 'x':
+        case 'X':
             tinkAudio.currentTime = 0;
             tinkAudio.play();
             break;
         case 'c':
+        case 'C':
             tomAudio.currentTime = 0;
             tomAudio.play();
             break;
