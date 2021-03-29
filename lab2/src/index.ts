@@ -1,4 +1,8 @@
 const channel1: any[] = [];
+const channel2: any[] = [];
+const channel3: any[] = [];
+const channel4: any[] = [];
+
 const  clapAudio: HTMLAudioElement = document.querySelector('[data-sound="clap"]');
 const  boomAudio: HTMLAudioElement = document.querySelector('[data-sound="boom"]');
 const  hihatAudio: HTMLAudioElement = document.querySelector('[data-sound="hihat"]');
