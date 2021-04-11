@@ -1,7 +1,4 @@
 var channel1 = [];
-var channel2 = [];
-var channel3 = [];
-var channel4 = [];
 var clapAudio = document.querySelector('[data-sound="clap"]');
 var boomAudio = document.querySelector('[data-sound="boom"]');
 var hihatAudio = document.querySelector('[data-sound="hihat"]');
