@@ -9,7 +9,7 @@ export class App {
     }
 
     async getWeather(city: string): Promise<any> {
-        const openWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.opwAPIKey}';
+        const openWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=848eefdeeb4818cfa7b6b9fb9a281dea';
         const weatherResponse = await fetch(openWeatherUrl);
         const weatherData = await weatherResponse.json();
         console.log(weatherData);
