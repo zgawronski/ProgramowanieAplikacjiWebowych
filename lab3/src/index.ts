@@ -1,10 +1,10 @@
 import { App } from './app';
 import './main.scss';
+import { Ui } from './ui';
 
 
-const pogoda = "Pogoda na dziś";
-document.body.innerHTML = pogoda;
+
+
+
 const app = new App();
-
-
-
+const ui = new Ui();
