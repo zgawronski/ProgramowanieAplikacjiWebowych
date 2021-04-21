@@ -3,21 +3,37 @@ body {
   justify-content: center;
 }
 
+
+
+.input-section{
+  width: 800px;
+  position: relative;
+  margin: auto;
+}
+
+.input-box {
+  position: relative;
+  margin: auto;
+  margin-top: 150px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.input-button {
+  position: relative;
+  color: white;
+  background-color: #008cba;
+  border-radius: 5px;
+}
+
 .cWind {
   width: 100px;
   height: 100px;;
   display: flex;
   position: relative;
-  top: 200px;
+  top: 20px;
   margin: auto;
   border: 1px solid #fafafa;
   border-radius: 10px;
-}
 
-.input-box {
-  position: absolute;
-  margin-top: 150px;
-  margin-left: 870px;
-  text-align: center;
-  border-radius: 5px;
 }
