@@ -1,8 +1,8 @@
 export class App {
     opwApiKey = '848eefdeeb4818cfa7b6b9fb9a281dea';
-    constructor() {
-        this.getCity();
-    }
+    // constructor() {
+    //     this.getCity();
+    // }
     async getCityInfo() {
         const inputSearch = <HTMLInputElement>document.getElementById('SearchI');
         const citySearch = inputSearch.value;
@@ -20,10 +20,10 @@ export class App {
         return weatherData;
     }
 
-    getCity(){
-        const buttonSearch = document.getElementById('SearchB');
-        buttonSearch.addEventListener('click',(ev: Event) => this.getCityInfo())
-    }
+    // getCity(){
+    //     const buttonSearch = document.getElementById('SearchB');
+    //     buttonSearch.addEventListener('click',(ev: Event) => this.getCityInfo())
+    // }
 
     saveData(data: any) {
         localStorage.setItem('weatherData', JSON.stringify(data));

@@ -9,7 +9,12 @@ export class Ui {
     addWindow(){
         const buttonAdd = document.getElementById('SearchB');
         buttonAdd.addEventListener('click',(ev: Event) => this.customWind('div'));
-
+        const inputSearch = document.getElementById("SearchI");
+        inputSearch.addEventListener("keydown", (e) => {
+            if(e.key === 'Enter'){
+                this.customWind('div');
+            }
+        })
     }
     async customWind(element: any){
         const customWind = document.createElement('div');
@@ -36,10 +41,6 @@ export class Ui {
         customWind.appendChild(newImage);
         customWind.appendChild(dane2);
         customWind.appendChild(dane3);
-
-        // refresh okna - do zmiany
-        // const buttonRefresh = document.getElementById('SearchB');
-        // buttonRefresh.addEventListener('click',(ev: Event) => window.location.reload());
     }
 
 
