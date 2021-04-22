@@ -26,6 +26,10 @@ export class Ui {
         customWind.appendChild(dane1);
         customWind.appendChild(dane2);
         customWind.appendChild(dane3);
+
+        // refresh okna - do zmiany
+        const buttonRefresh = document.getElementById('SearchB');
+        buttonRefresh.addEventListener('click',(ev: Event) => window.location.reload());
     }
 
 
