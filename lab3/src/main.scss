@@ -19,7 +19,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 800px;
   position: relative;
   margin: auto;
   padding: 20px;
@@ -44,24 +43,18 @@ body {
 
 
 .cWind {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 20px 30px 60px 30px;
-  width: 250px;
+
+  width: 100%;
+  max-width: 250px;
   height: auto;
   padding: 10px;
   top: 20px;
   margin: auto;
   margin-bottom: 10px;
-  text-align: right;
+  text-align: center;
   font-weight: bold;
   border: 1px solid #fafafa;
   border-radius: 10px;
   box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.1);
-
-
-  img{
-    position: relative;
-  }
 
 }
