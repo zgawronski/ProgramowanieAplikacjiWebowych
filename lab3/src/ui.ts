@@ -8,7 +8,14 @@ export class Ui {
 
     addWindow(){
         const buttonAdd = document.getElementById('SearchB');
-        buttonAdd.addEventListener('click',(ev: Event) => this.customWind('div'));
+        buttonAdd.addEventListener('click',(ev: Event) => {
+            if(document.getElementById("SearchI") == null){
+            return }
+            else{
+                return this.customWind('div');
+
+            }
+        });
         const inputSearch = document.getElementById("SearchI");
         inputSearch.addEventListener("keydown", (e) => {
             if(e.key === 'Enter'){
