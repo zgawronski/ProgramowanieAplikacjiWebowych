@@ -25,8 +25,10 @@ export class Ui {
         dane2.setAttribute("id", "temp");
         const dane3 = document.createElement('div');
         dane3.setAttribute("id", "location");
+        const weatherDane = app.getCityInfo();
 
-        dane1.innerHTML = app.getCityInfo();
+        //dane1.innerHTML = weatherDane.name;
+        console.log(weatherDane);
         customWind.appendChild(dane1);
         customWind.appendChild(dane2);
         customWind.appendChild(dane3);
