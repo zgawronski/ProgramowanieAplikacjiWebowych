@@ -1,3 +1,6 @@
+import { App } from './app';
+const app = new App();
+
 export class Ui {
 
     private customWindow: HTMLElement;
@@ -15,8 +18,20 @@ export class Ui {
         const customWind = document.createElement('div');
         customWind.className = "cWind";
         customWind.setAttribute("id", "customWindId");
-
         document.body.appendChild(customWind);
+        const dane1 = document.createElement('div');
+        dane1.setAttribute("id", "description");
+        const dane2 = document.createElement('h1');
+        dane2.setAttribute("id", "temp");
+        const dane3 = document.createElement('div');
+        dane3.setAttribute("id", "location");
+
+        dane1.innerHTML = app.getCityInfo();
+        customWind.appendChild(dane1);
+        customWind.appendChild(dane2);
+        customWind.appendChild(dane3);
     }
+
+
 
 }
