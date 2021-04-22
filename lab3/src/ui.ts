@@ -6,22 +6,34 @@ export class Ui {
         this.addWindow();
     };
 
-    addWindow(){
+    async addWindow(){
+
         const buttonAdd = document.getElementById('SearchB');
         buttonAdd.addEventListener('click',(ev: Event) => {
-            if(document.getElementById("SearchI") == null){
-            return }
+            const inputS = <HTMLInputElement>document.getElementById('SearchI');
+            const addIn = inputS.value;
+            if(addIn === ""){
+                return }
             else{
-                return this.customWind('div');
-
+                this.customWind('div');
+                let inputSe = <HTMLInputElement>document.getElementById('SearchI');
+                inputSe.value = "";
             }
         });
         const inputSearch = document.getElementById("SearchI");
         inputSearch.addEventListener("keydown", (e) => {
-            if(e.key === 'Enter'){
-                this.customWind('div');
-            }
-        })
+            const inputS = <HTMLInputElement>document.getElementById('SearchI');
+            const addIn = inputS.value;
+            if(addIn === ""){
+                return }
+                else{
+                    if(e.key === 'Enter'){
+                        this.customWind('div');
+                        let inputSe = <HTMLInputElement>document.getElementById('SearchI');
+                        inputSe.value = "";
+                    }
+                }
+            })
     }
     async customWind(element: any){
         const customWind = document.createElement('div');
