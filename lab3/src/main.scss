@@ -27,13 +27,17 @@ body {
 }
 
 .cWind {
-  width: 100px;
-  height: 100px;;
-  display: flex;
+  width: 250px;
+  height: auto;
+  padding: 10px;
   position: relative;
   top: 20px;
   margin: auto;
   border: 1px solid #fafafa;
   border-radius: 10px;
+  h3{
+    text-align: right;
+    margin: 5px
+  }
 
 }
