@@ -8,7 +8,7 @@ export class App {
         const citySearch = inputSearch.value;
         const weather = await this.getWeather(citySearch);
         this.saveData(weather);
-        return weather;
+        //return weather;
     }
 
 
@@ -30,7 +30,7 @@ export class App {
         localStorage.setItem('weatherData', JSON.stringify(data));
 
     }
-    
+
     getData() {
         const data = localStorage.getItem('weatherData');
         if (data) {
