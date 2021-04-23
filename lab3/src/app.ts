@@ -8,7 +8,7 @@ export class App {
         const citySearch = inputSearch.value;
         const weather = await this.getWeather(citySearch);
         this.saveData(weather);
-        //return weather;
+        return weather;
     }
 
 
