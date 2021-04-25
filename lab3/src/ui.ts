@@ -49,7 +49,7 @@ export class Ui {
         dane4.setAttribute("id", "airpress")
         const newImage = document.createElement('img');
         newImage.setAttribute("id", "newImage");
-        const weatherDane = await app.getData();
+        const weatherDane = await app.getCityInfo();
         const srcImg =  `http://openweathermap.org/img/wn/${weatherDane.weather[0].icon}@2x.png`;
         newImage.src = srcImg;
         const container = document.createElement('div');
