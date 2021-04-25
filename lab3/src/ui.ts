@@ -69,7 +69,4 @@ export class Ui {
         customWind.appendChild(dane3);
         customWind.appendChild(dane4);
     }
-
-
-
 }
