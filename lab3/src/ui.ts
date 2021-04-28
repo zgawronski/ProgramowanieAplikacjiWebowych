@@ -66,16 +66,13 @@ export class Ui {
         const weatherDane = await app.getCityInfo(cityName);
         const srcImg =  `http://openweathermap.org/img/wn/${weatherDane.weather[0].icon}@2x.png`;
         newImage.src = srcImg;
-        const container = document.createElement('div');
-        container.className = "container";
-
+        const container = document.getElementById('container');
 
         dane1.innerHTML = weatherDane.name;
         dane2.innerHTML = "temperatura: " + Math.round(weatherDane.main.temp - 273.15).toString() + '&deg;';
         dane3.innerHTML = "wilgotność: " + weatherDane.main.humidity + "%";
         dane4.innerHTML = "ciśnienie: " + weatherDane.main.pressure + "hPa";
 
-        document.body.appendChild(container);
         container.appendChild(customWind);
         customWind.appendChild(dane1);
         customWind.appendChild(newImage);
