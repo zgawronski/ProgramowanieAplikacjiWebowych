@@ -3,14 +3,15 @@ export class App {
     // constructor() {
     //     this.getCity();
     // }
-    async getCityInfo() {
-        const inputSearch = <HTMLInputElement>document.getElementById('SearchI');
-        const citySearch = inputSearch.value;
-        const weather = await this.getWeather(citySearch);
+    async getCityInfo(cityName: string) {
+        //const inputSearch = <HTMLInputElement>document.getElementById('SearchI');
+        //cityName = inputSearch.value;
+        const weather = await this.getWeather(cityName);
         this.saveData(weather);
         return weather;
     }
 
+    private magazyn: any[] = [];
 
     async getWeather(city: string): Promise<any> {
         const openWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${this.opwApiKey}`;
@@ -27,16 +28,9 @@ export class App {
     // }
 
     saveData(data: any) {
-        localStorage.setItem('weatherData', JSON.stringify(data));
-
+        this.magazyn.push(data.name);
+        localStorage.setItem('weather', JSON.stringify(this.magazyn));
     }
 
-    getData() {
-        const data = localStorage.getItem('weatherData');
-        if (data) {
-            return JSON.parse(data);
-        } else {
-            return {};
-        }
-    }
+
 }

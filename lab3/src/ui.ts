@@ -3,39 +3,53 @@ const app = new App();
 export class Ui {
 
     constructor(){
+        this.loadFromStorage();
         this.addWindow();
     };
 
     async addWindow(){
 
         const buttonAdd = document.getElementById('SearchB');
-        buttonAdd.addEventListener('click',(ev: Event) => {
+        buttonAdd.addEventListener('click',async (ev: Event) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value;
             if(addIn === ""){
                 return }
             else{
-                this.customWind('div');
-                let inputSe = <HTMLInputElement>document.getElementById('SearchI');
-                inputSe.value = "";
+                await this.customWind(addIn);
+                inputS.value = "";
             }
         });
         const inputSearch = document.getElementById("SearchI");
-        inputSearch.addEventListener("keydown", (e) => {
+        inputSearch.addEventListener("keydown", async (e) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value;
             if(addIn === ""){
                 return }
                 else{
                     if(e.key === 'Enter'){
-                        this.customWind('div');
-                        let inputSe = <HTMLInputElement>document.getElementById('SearchI');
-                        inputSe.value = "";
+                        await this.customWind(addIn);
+                        console.log(addIn);
+                        inputS.value = "";
                     }
                 }
             })
     }
-    async customWind(element: any){
+
+    private loadFromStorage(){
+        const data = localStorage.getItem('weather');
+        if (data) {
+            const cityColection = JSON.parse(data) as any[];
+            cityColection.forEach(x => this.customWind(x));
+        }
+    }
+
+
+    async customWind(cityName: string = ""){
+        // if(cityName=""){
+        // const inputSearch = <HTMLInputElement>document.getElementById('SearchI');
+        // cityName = inputSearch.value;
+        // }
         const customWind = document.createElement('div');
         customWind.className = "cWind";
         customWind.setAttribute("id", "customWindId");
@@ -49,7 +63,7 @@ export class Ui {
         dane4.setAttribute("id", "airpress")
         const newImage = document.createElement('img');
         newImage.setAttribute("id", "newImage");
-        const weatherDane = await app.getCityInfo();
+        const weatherDane = await app.getCityInfo(cityName);
         const srcImg =  `http://openweathermap.org/img/wn/${weatherDane.weather[0].icon}@2x.png`;
         newImage.src = srcImg;
         const container = document.createElement('div');
