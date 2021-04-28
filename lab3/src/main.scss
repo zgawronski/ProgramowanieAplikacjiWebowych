@@ -2,14 +2,13 @@ body {
   background: #ccc;
   justify-content: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 1200px;
-  height: 800px;
   margin: auto;
 }
 
@@ -18,7 +17,6 @@ body {
   background-color: darkgray;
   text-align: center;
   font-size: 48px;
-  //font-weight: bold;
   padding: 20px;
   border-radius: 20px;
 }
@@ -30,7 +28,6 @@ body {
   position: relative;
   margin: auto;
   padding: 20px;
-
 }
 
 .input-box {
@@ -51,10 +48,9 @@ body {
 
 
 .cWind {
-
   width: 100%;
-  max-width: 250px;
-  height: 250px;
+  width: 250px;
+  height: 220px;
   padding: 10px;
   top: 20px;
   margin-left: 20px;
@@ -64,5 +60,4 @@ body {
   border: 1px solid #fafafa;
   border-radius: 10px;
   box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.1);
-
 }
