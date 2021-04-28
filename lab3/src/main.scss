@@ -1,5 +1,7 @@
 body {
-  background: #ccc;
+  background-image: url('https://media.nationalgeographic.org/assets/photos/000/263/26383.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   justify-content: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -7,14 +9,16 @@ body {
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  width: 1200px;
+  justify-content: space-between;
+  width: 50%;
   margin: auto;
 }
 
 .titleDiv {
   font-family: 'Gloria Hallelujah', cursive;
-  background-color: darkgray;
+  background-color: rgba(169, 169, 169, 0.3);
+  width: 70%;
+  margin: auto;
   text-align: center;
   font-size: 48px;
   padding: 20px;
@@ -36,26 +40,28 @@ body {
 }
 
 .input-button {
-  width: 30px;
-  height: 30px;
+  width: 70px;
+  height: 20px;
   text-align: center;
   font-weight: bold;
-  color: white;
-  background-color: #008cba;
-  border-radius: 50%;
-  padding: 0;
+  color: #ccc;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 2px;
+  margin-left: 5px;
 }
 
 
 .cWind {
+  background: rgba(255, 255, 255, 0.3);
   width: 100%;
   width: 250px;
   height: 220px;
   padding: 10px;
   top: 20px;
-  margin-left: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   text-align: center;
+  color: #000000;
   font-weight: bold;
   border: 1px solid #fafafa;
   border-radius: 10px;

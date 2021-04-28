@@ -42,6 +42,7 @@ export class Ui {
             const cityColection = JSON.parse(data) as any[];
             cityColection.forEach(x => this.customWind(x));
         }
+
     }
 
 
