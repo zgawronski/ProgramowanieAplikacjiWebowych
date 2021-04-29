@@ -1,46 +1,58 @@
 import { App } from './app';
 const app = new App();
 export class Ui {
-
     constructor(){
         this.loadFromStorage();
         this.addWindow();
     };
 
     async addWindow(){
-
         const buttonAdd = document.getElementById('SearchB');
         buttonAdd.addEventListener('click',async (ev: Event) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value;
-            if(addIn === ""){
-                return }
+
+            if((addIn === "") || (this.checkCityName(addIn)))
+                return
             else{
                 await this.customWind(addIn);
                 inputS.value = "";
             }
         });
+
         const inputSearch = document.getElementById("SearchI");
         inputSearch.addEventListener("keydown", async (e) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value;
-            if(addIn === ""){
+            if((addIn === "") || (this.checkCityName(addIn))){
                 return }
-                else{
-                    if(e.key === 'Enter'){
-                        await this.customWind(addIn);
-                        console.log(addIn);
-                        inputS.value = "";
-                    }
+            else{
+                if(e.key === 'Enter'){
+                    await this.customWind(addIn);
+                    //console.log(addIn);
+                    inputS.value = "";
                 }
-            })
+            }
+        })
+    }
+
+
+    private checkCityName(cityName: string){
+        let nameExist = false;
+        const data = localStorage.getItem('weather');
+        const cityColection = JSON.parse(data) as any[];
+        cityColection.forEach((x) => {
+            if (x.toLowerCase() == cityName.toLowerCase())
+                nameExist = true;
+        });
+        return nameExist;
     }
 
     private loadFromStorage(){
         const data = localStorage.getItem('weather');
         if (data) {
             const cityColection = JSON.parse(data) as any[];
-            cityColection.forEach(x => this.customWind(x));
+            cityColection.forEach(async x => await this.customWind(x));
         }
     }
 

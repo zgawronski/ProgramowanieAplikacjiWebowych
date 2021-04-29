@@ -21,8 +21,6 @@ export class App {
     saveData(data: any) {
         this.magazyn.push(data.name);
         localStorage.setItem('weather', JSON.stringify(this.magazyn));
-        console.log(this.magazyn);
+        //console.log(this.magazyn);
     }
-
-
 }
