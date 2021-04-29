@@ -10,30 +10,30 @@ export class Ui {
         const buttonAdd = document.getElementById('SearchB');
         buttonAdd.addEventListener('click',async (ev: Event) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
-            const addIn = inputS.value;
+            const addIn = inputS.value.toLowerCase();
 
             if((addIn === "") || (this.checkCityName(addIn)))
+
                 return
             else{
                 await this.customWind(addIn);
                 inputS.value = "";
             }
         });
-
         const inputSearch = document.getElementById("SearchI");
         inputSearch.addEventListener("keydown", async (e) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value;
             if((addIn === "") || (this.checkCityName(addIn))){
                 return }
-            else{
-                if(e.key === 'Enter'){
-                    await this.customWind(addIn);
-                    //console.log(addIn);
-                    inputS.value = "";
+                else{
+                    if(e.key === 'Enter'){
+                        await this.customWind(addIn);
+                        //console.log(addIn);
+                        inputS.value = "";
+                    }
                 }
-            }
-        })
+            })
     }
 
 
