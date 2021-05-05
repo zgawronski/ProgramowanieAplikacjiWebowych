@@ -11,21 +11,18 @@ export class Ui {
         buttonAdd.addEventListener('click',async (ev: Event) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value.toLowerCase();
-
-            if((addIn === "") || (this.checkCityName(addIn)))
-
-                return
+            if((addIn === "") || (this.checkCityName(addIn)) || (addIn === "null")){}
             else{
                 await this.customWind(addIn);
                 inputS.value = "";
             }
         });
+
         const inputSearch = document.getElementById("SearchI");
         inputSearch.addEventListener("keydown", async (e) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value;
-            if((addIn === "") || (this.checkCityName(addIn))){
-                return }
+            if((addIn === "") || (this.checkCityName(addIn)) || (addIn === "null")){}
                 else{
                     if(e.key === 'Enter'){
                         await this.customWind(addIn);
@@ -37,16 +34,6 @@ export class Ui {
     }
 
 
-    private checkCityName(cityName: string){
-        let nameExist = false;
-        const data = localStorage.getItem('weather');
-        const cityColection = JSON.parse(data) as any[];
-        cityColection.forEach((x) => {
-            if (x.toLowerCase() == cityName.toLowerCase())
-                nameExist = true;
-        });
-        return nameExist;
-    }
 
     private loadFromStorage(){
         const data = localStorage.getItem('weather');
@@ -56,6 +43,18 @@ export class Ui {
         }
     }
 
+    private checkCityName(cityName: string){
+        let nameExist = false;
+        const data = localStorage.getItem('weather');
+        if (data != null){
+            const cityColection = JSON.parse(data) as any[];
+            cityColection.forEach((x) => {
+                if (x.toLowerCase() == cityName.toLowerCase())
+                    nameExist = true;
+            });
+            return nameExist;
+        }
+    }
 
     async customWind(cityName: string = ""){
         // if(cityName=""){
