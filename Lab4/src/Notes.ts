@@ -1,6 +1,6 @@
-import { App } from './app';
-const app = new App();
-export class Ui {
+import { AppStorage } from './appStorage';
+const appStorage = new AppStorage();
+export class Notes {
     constructor(){
         this.loadFromStorage();
         this.addWindow();
@@ -74,7 +74,7 @@ export class Ui {
         dane4.setAttribute("id", "airpress")
         const newImage = document.createElement('img');
         newImage.setAttribute("id", "newImage");
-        const weatherDane = await app.getCityInfo(cityName);
+        const weatherDane = await appStorage.getCityInfo(cityName);
         const srcImg =  `http://openweathermap.org/img/wn/${weatherDane.weather[0].icon}@2x.png`;
         newImage.src = srcImg;
         const container = document.getElementById('container');
