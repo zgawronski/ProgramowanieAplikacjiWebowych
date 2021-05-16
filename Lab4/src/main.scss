@@ -1,4 +1,7 @@
 body {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
   background-color: lightgrey;
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,8 +22,10 @@ body {
 }
 
 .nav-section {
+  position: absolute;
+  left: 0;
+  top: 200px;
   width: 250px;
-  font-family: 'Gloria Hallelujah', cursive;
   background-color: rgba(169, 169, 169, 0.3);
   border-radius: 5px;
 
@@ -29,7 +34,7 @@ body {
 .nav-input-search {
   text-align: center;
   border-radius: 5px;
-
+  margin-bottom: 10px;
 }
 .nav-btn-search{
   width: 70px;
@@ -44,11 +49,18 @@ body {
   margin-left: 5px;
 }
 
-.nav-menu {
-  width: 230px
+.nav-btn-menu {
+  font-family: 'Gloria Hallelujah', cursive;
+  width: 230px;
+  height: 40px;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .input-section {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
