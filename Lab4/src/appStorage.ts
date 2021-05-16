@@ -1,19 +1,18 @@
 export class AppStorage {
 
 
-    getCityInfo(cityName: string) {
-        const Note = this.getNote(newNote);
+    getNewNote(newNote: string) {
+        const note = this.getNote(newNote);
         this.saveData(note);
-        return weather;
+        return note;
     }
+
 
     private magazyn: any[] = [];
 
-    getNote(newNote: string): {
-        const takeTitle = ;
-        const takeNote =;
+    getNote(newNote: string) {
+        const takeTitle = document.body.getElementsByClassName('AddNote');
 
-        return Note;
     }
 
     saveData(note: any) {
@@ -21,4 +20,7 @@ export class AppStorage {
         localStorage.setItem('note', JSON.stringify(this.magazyn));
         //console.log(this.magazyn);
     }
+
 }
+
+
