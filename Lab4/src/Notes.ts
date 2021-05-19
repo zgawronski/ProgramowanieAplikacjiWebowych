@@ -2,7 +2,7 @@ import { AppStorage } from './appStorage';
 const appStorage = new AppStorage();
 export class Notes {
     constructor(){
-        //this.loadFromStorage();
+        this.loadFromStorage();
         this.addWindow();
     };
 
@@ -33,13 +33,13 @@ export class Notes {
 
 
 
-    // private loadFromStorage(){
-    //     const data = localStorage.getItem('weather');
-    //     if (data) {
-    //         const cityColection = JSON.parse(data) as any[];
-    //         cityColection.forEach(async x => await this.customWind(x));
-    //     }
-    // }
+    private loadFromStorage(){
+        const data = localStorage.getItem('note');
+        if (data) {
+            const noteColection = JSON.parse(data) as any[];
+            noteColection.forEach( x => this.newStickyNote(x));
+        }
+    }
 
     private getNote(newNote: string){
         let nameExist = false;
@@ -54,39 +54,20 @@ export class Notes {
         }
     }
 
-    // async customWind(cityName: string = ""){
-    //     // if(cityName=""){
-    //     // const inputSearch = <HTMLInputElement>document.getElementById('SearchI');
-    //     // cityName = inputSearch.value;
-    //     // }
-    //     const customWind = document.createElement('div');
-    //     customWind.className = "cWind";
-    //     customWind.setAttribute("id", "customWindId");
-    //     const dane1 = document.createElement('div');
-    //     dane1.setAttribute("id", "description");
-    //     const dane2 = document.createElement('div');
-    //     dane2.setAttribute("id", "temp");
-    //     const dane3 = document.createElement('div');
-    //     dane3.setAttribute("id", "location");
-    //     const dane4 =document.createElement('div');
-    //     dane4.setAttribute("id", "airpress")
-    //     const newImage = document.createElement('img');
-    //     newImage.setAttribute("id", "newImage");
-    //     const weatherDane = await appStorage.getCityInfo(cityName);
-    //     const srcImg =  `http://openweathermap.org/img/wn/${weatherDane.weather[0].icon}@2x.png`;
-    //     newImage.src = srcImg;
-    //     const container = document.getElementById('container');
+    newStickyNote(newNote: string = ""){
+        const noteWindow = document.createElement('div');
+        noteWindow.className = "noteWind";
+        noteWindow.setAttribute("id", "noteWindId");
 
-    //     dane1.innerHTML = weatherDane.name;
-    //     dane2.innerHTML = "temperatura: " + Math.round(weatherDane.main.temp - 273.15).toString() + '&deg;';
-    //     dane3.innerHTML = "wilgotność: " + weatherDane.main.humidity + "%";
-    //     dane4.innerHTML = "ciśnienie: " + weatherDane.main.pressure + "hPa";
+        const newNoteTitle = appStorage.getNewNote(newNote);
 
-    //     container.appendChild(customWind);
-    //     customWind.appendChild(dane1);
-    //     customWind.appendChild(newImage);
-    //     customWind.appendChild(dane2);
-    //     customWind.appendChild(dane3);
-    //     customWind.appendChild(dane4);
-    // }
+        const container = document.getElementById('container');
+
+        const noteTitle = document.createElement('div');
+
+        noteTitle.innerHTML = newNoteTitle;
+        container.appendChild(noteWindow);
+        noteWindow.appendChild(noteTitle);
+
+    }
 }
