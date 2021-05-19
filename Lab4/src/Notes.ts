@@ -6,22 +6,22 @@ export class Notes {
         this.addWindow();
     };
 
-    async addWindow(){
-        const buttonAdd = document.getElementById('SearchB');
-        buttonAdd.addEventListener('click',async (ev: Event) => {
-            const inputS = <HTMLInputElement>document.getElementById('SearchI');
+    addWindow(){
+        const buttonAdd = document.getElementById('AddButton');
+        buttonAdd.addEventListener('click', (ev: Event) => {
+            const inputS = <HTMLInputElement>document.getElementById('AddNote');
             const addIn = inputS.value.toLowerCase();
-            if((addIn === "") || (this.checkCityName(addIn)) || (addIn === "null")){}
+            if((addIn === "") || (this.getNote(addIn)) || (addIn === "null")){}
             else{
                 inputS.value = "";
             }
         });
 
-        const inputSearch = document.getElementById("SearchI");
+        const inputSearch = document.getElementById("AddNote");
         inputSearch.addEventListener("keydown", async (e) => {
-            const inputS = <HTMLInputElement>document.getElementById('SearchI');
+            const inputS = <HTMLInputElement>document.getElementById('AddNote');
             const addIn = inputS.value;
-            if((addIn === "") || (this.checkCityName(addIn)) || (addIn === "null")){}
+            if((addIn === "") || (this.getNote(addIn)) || (addIn === "null")){}
                 else{
                     if(e.key === 'Enter'){
                         //console.log(addIn);
@@ -41,13 +41,13 @@ export class Notes {
     //     }
     // }
 
-    private checkCityName(cityName: string){
+    private getNote(newNote: string){
         let nameExist = false;
-        const data = localStorage.getItem('weather');
+        const data = localStorage.getItem('note');
         if (data != null){
-            const cityColection = JSON.parse(data) as any[];
-            cityColection.forEach((x) => {
-                if (x.toLowerCase() == cityName.toLowerCase())
+            const noteColection = JSON.parse(data) as any[];
+            noteColection.forEach((x) => {
+                if (x.toLowerCase() == newNote.toLowerCase())
                     nameExist = true;
             });
             return nameExist;

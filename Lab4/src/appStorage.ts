@@ -12,7 +12,7 @@ export class AppStorage {
 
     getNote(newNote: string) {
         const takeTitle = document.body.getElementsByClassName('AddNote');
-
+        this.saveData(newNote);
     }
 
     saveData(note: any) {
