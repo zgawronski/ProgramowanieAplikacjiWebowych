@@ -13,9 +13,6 @@ export class Notes {
         }
     }
 
-    showNote() {
-        const stickiNote = appStorage.addNote.addNote
-    }
 
     newStickyNote(newNote: string = "") {
         const noteWindow = document.createElement('div');
