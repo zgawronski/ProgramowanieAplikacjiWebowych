@@ -25,9 +25,9 @@ export class AppStorage {
             else {
                 if (e.key === 'Enter') {
                     takeFromInput.value = '';
+                    this.saveData(addNote);
                 }
             }
-            this.saveData(addNote);
             return addNote;
         })
 
