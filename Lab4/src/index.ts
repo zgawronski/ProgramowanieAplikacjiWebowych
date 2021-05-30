@@ -29,9 +29,18 @@ async function deleteNote(id: string) {
     const res = await db.collection('notes').doc(id).delete();
 }
 
-updateNote(
-    'fcOqaNjrjvxIUObVwowE'
-)
-async function updateNote(id: string) {
+// updateNote(
+//     'fcOqaNjrjvxIUObVwowE',
+//     {
+//         title: 'updated note',
+//         content: 'Never mind'
+//     }
+// )
+async function updateNote(id: string, note: any) {
     const res = await db.collection('notes').doc(id).update(note);
+}
+
+getNote('fcOqaNjrjvxIUObVwowE').then(res => console.log(res))
+async function getNote(id: string) {
+    return db.collection('notes').doc(id).get()
 }
