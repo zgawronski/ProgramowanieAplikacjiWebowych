@@ -34,6 +34,7 @@ export class AppStorage {
             content: 'buttonAdd.content',
             dateOfNote: new Date().toDateString(),
         }
+        this.saveData(notatka)
 
     }
 

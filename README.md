@@ -1,2 +1,0 @@
-# ProgramowanieAplikacjiWebowych
-Programowanie Aplikacji Webowych

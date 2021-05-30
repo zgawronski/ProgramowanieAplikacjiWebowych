@@ -2,7 +2,7 @@ body {
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  background-color: rgb(16, 2, 78);
+  background-color: rgb(4, 42, 74);
   background-size: cover;
   background-repeat: no-repeat;
   justify-content: center;
@@ -13,12 +13,12 @@ body {
 .titleDiv {
   font-family: 'Gloria Hallelujah', cursive;
   background-color: rgba(169, 169, 169, 0.3);
-  width: 70%;
+  width: 100%;
   margin: auto;
   text-align: center;
   font-size: 48px;
+  color: yellow;
   padding: 20px;
-  border-radius: 20px;
 }
 
 .nav-section {
@@ -34,39 +34,41 @@ body {
 .nav-input-search {
   height: 5.5ch;
   text-align: center;
-  border-radius: 5px;
   margin-bottom: 10px;
-  background-color: rgb(19, 19, 19);
+  background-color: rgb(4, 42, 74);
   color: white;
+  border: none;
 }
 .nav-btn-search{
+  font-family: 'arial';
   width: 13ch;
   height: 6ch;
   text-align: center;
-  font-weight: bold;
-  font-size: 0.6rem;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 0 20px 20px 0;
+  font-size: 0.8rem;
+  background-color: rgb(4, 42, 74);
+  color: white;
   padding: 2px;
   margin-left: 5px;
+  border: none;
 }
 
 .nav-btn-menu {
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'arial';
   width: 250px;
   height: 40px;
-  border-radius: 0 20px 20px 0;
   margin-bottom: 10px;
   font-size: 1rem;
-  font-weight: bold;
-  background-color: rgb(19, 19, 19);
+  background-color: rgb(4, 42, 74);
   color: white;
+  border: none;
 }
 
 .input-section {
   width: 50%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 2;
+
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -79,9 +81,9 @@ body {
   width: 50ch;
   height: 5ch;
   text-align: center;
-  border-radius: 5px;
-  background-color: rgb(19, 19, 19);
+  background-color: rgb(4, 42, 74);
   color: white;
+  border: 0.2px solid grey;
 }
 
 .input-AddButton {
@@ -90,14 +92,23 @@ body {
   text-align: center;
   font-weight: bold;
   font-size: 0.6rem;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
+  background-color: rgb(4, 42, 74);
+  color: white;
+  border: 0.2px solid grey;
   padding: 2px;
   margin-left: 5px;
 }
 
 
+.tmp-content {
+  width: 50ch;
+  height: 15ch;
+  text-align: center;
+  background-color: rgb(9, 50, 83);
+  color: white;
+  border: 0.2px solid grey;
+
+}
 .cWind {
   background: rgba(255, 255, 255, 0.3);
   width: 100%;
@@ -120,13 +131,4 @@ body {
   flex-wrap: wrap;
   width: 50%;
   margin: auto;
-}
-.tmp-content {
-  width: 50ch;
-  height: 15ch;
-  text-align: center;
-  border-radius: 5px;
-  background-color: rgb(19, 19, 19);
-  color: white;
-
 }

@@ -1,7 +1,37 @@
 //import { App } from './app';
 import './main.scss';
-import { Notes } from './Notes';
+//import { Notes } from './Notes';
+import firebase from 'firebase';
+import { firebaseConfig } from './config'
+
+
 
 //const app = new App();
-const note = new Notes();
+//const notes = new Notes();
 
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+
+
+const note = {
+    title: 'Second note',
+    content: 'Second test note from code',
+}
+
+// addNote(note);
+async function addNote(note: any) {
+    const res = await db.collection('notes').add(note);
+
+}
+
+// deleteNote('7hLbT6g33V38A0hU5WiG')
+async function deleteNote(id: string) {
+    const res = await db.collection('notes').doc(id).delete();
+}
+
+updateNote(
+    'fcOqaNjrjvxIUObVwowE'
+)
+async function updateNote(id: string) {
+    const res = await db.collection('notes').doc(id).update(note);
+}
