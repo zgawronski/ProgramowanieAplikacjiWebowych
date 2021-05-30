@@ -42,5 +42,5 @@ async function updateNote(id: string, note: any) {
 
 getNote('fcOqaNjrjvxIUObVwowE').then(res => console.log(res))
 async function getNote(id: string) {
-    return db.collection('notes').doc(id).get()
+    return db.collection('notes').doc(id).get().then(res => res.data())
 }
