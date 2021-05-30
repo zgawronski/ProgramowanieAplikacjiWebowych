@@ -54,12 +54,14 @@
         </div>
         <audio src="sounds/tom.wav" data-sound="tom"></audio>
 
-        <div id="prog-bar" class="progress">
-            <div class="progress-bar">
-            </div>
+        <div class=progress>
+            <label for="prog-bar"></label>
+            <progress class= "progress-bar" id="prog-bar" max="100" value="0" position="relative">
+            </progress>
         </div>
 
         <button class="but" id="playChannel1">Play</button>
+        <button class="but" id="playChannel1Record">Record</button>
     </div>
     <script src="index.js"></script>
 </body>

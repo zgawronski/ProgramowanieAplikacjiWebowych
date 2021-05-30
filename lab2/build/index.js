@@ -9,19 +9,40 @@ var snareAudio = document.querySelector('[data-sound="snare"]');
 var tinkAudio = document.querySelector('[data-sound="tink"]');
 var tomAudio = document.querySelector('[data-sound="tom"]');
 var playChannel1Btn = document.querySelector('#playChannel1');
+var playChannel1BtnRecorder = document.querySelector('#playChannel1Record');
+var progressBar = document.getElementById('prog-bar');
+var recorder = false;
+var differenceTime = 0;
 document.body.addEventListener('keypress', onKeyDown);
 playChannel1Btn.addEventListener('click', onPlayChannel1);
-function onKeyDown(ev) {
-    var key = ev.key;
-    var time = ev.timeStamp;
-    channel1.push({
-        key: key,
-        time: time
-    });
-    playSound(key);
-    console.log(channel1);
+playChannel1BtnRecorder.addEventListener('click', playChannel1Recorder);
+function playChannel1Recorder(ev) {
+    recorder = !recorder;
+    if (recorder) {
+        playChannel1BtnRecorder.innerHTML = "Stop";
+        differenceTime = ev.timeStamp;
+        channel1 = [];
+    }
+    else
+        playChannel1BtnRecorder.innerHTML = "Record";
 }
-function playSound(key) {
+function onKeyDown(ev) {
+    if (recorder) {
+        var key = ev.key;
+        var time = ev.timeStamp - differenceTime;
+        channel1.push({
+            key: key,
+            time: time
+        });
+        playSound(key, 0);
+        console.log(channel1);
+    }
+    else {
+        playSound(ev.key, 0);
+    }
+}
+function playSound(key, soundTime) {
+    progressBar.value = soundTime;
     switch (key) {
         case 'q':
         case 'Q':
@@ -75,8 +96,10 @@ function onPlayChannel1() {
 }
 function playChannel1() {
     var prevTime = 0;
+    progressBar.max = channel1[channel1.length - 1].time;
+    progressBar.value = 0;
     channel1.forEach(function (sound) {
         var timeout = sound.time - prevTime;
-        setTimeout(function () { return playSound(sound.key); }, timeout);
+        setTimeout(function () { return playSound(sound.key, sound.time); }, timeout);
     });
 }
