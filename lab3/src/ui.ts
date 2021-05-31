@@ -12,7 +12,7 @@ export class Ui {
         buttonAdd.addEventListener('click', async (ev: Event) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value.toLowerCase();
-            if ((addIn === "") || (this.checkCityName(addIn)) || (addIn === "null")) { }
+            if ((addIn === "") || (this.checkCityName(addIn)) || (addIn === "null") || (addIn === null) || (addIn === undefined)) { }
             else {
                 await this.customWind(addIn);
                 inputS.value = "";
@@ -23,7 +23,7 @@ export class Ui {
         inputSearch.addEventListener("keydown", async (e) => {
             const inputS = <HTMLInputElement>document.getElementById('SearchI');
             const addIn = inputS.value;
-            if ((addIn === "") || (this.checkCityName(addIn)) || (addIn === "null")) { }
+            if ((addIn === "") || (this.checkCityName(addIn)) || (addIn === "null") || (addIn === null) || (addIn === undefined)) { }
             else {
                 if (e.key === 'Enter') {
                     await this.customWind(addIn);
@@ -47,7 +47,7 @@ export class Ui {
     private checkCityName(cityName: string) {
         let nameExist = false;
         const data = localStorage.getItem('weather');
-        if (data != null) {
+        if ((data !== null)) {
             const cityColection = JSON.parse(data) as any[];
             cityColection.forEach((x) => {
                 if (x.toLowerCase() == cityName.toLowerCase())
@@ -94,7 +94,7 @@ export class Ui {
         const newImage = document.createElement('img');
         newImage.setAttribute("id", "newImage");
         const weatherDane = await app.getCityInfo(cityName);
-        if (localStorage.getItem('weather') !== '') {
+        if ((localStorage.getItem('weather') !== '') || (localStorage.getItem('weather') !== null) || (localStorage.getItem('weather') !== undefined)) {
             const srcImg = `http://openweathermap.org/img/wn/${weatherDane.weather[0].icon}@2x.png`;
             newImage.src = srcImg;
         }
@@ -114,23 +114,5 @@ export class Ui {
         customWind.appendChild(dane3);
         customWind.appendChild(dane4);
     }
-
-    // btnClose() {
-    //     if (localStorage.getItem('weather') !== null) {
-
-    //         let btnClose = document.getElementById('closeBtn');
-
-    //         btnClose.addEventListener('click', (ev: Event) => {
-    //             console.log(ev);
-    //             //let rmvWindow = document.getElementById();
-    //             let d1 = document.getElementById('description');
-    //             let d2 = document.getElementById('temp');
-    //             let d3 = document.getElementById('location');
-    //             let d4 = document.getElementById('airpress');
-    //             let img = document.getElementById('newImage');
-    //             //btnClose.removeChild(rmvWindow);
-    //         })
-    //     }
-    // }
 
 }
