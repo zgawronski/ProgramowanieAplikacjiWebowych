@@ -1,7 +1,7 @@
 import { IAppStorage } from './interfaces/IAppStorage';
 export class AppStorage {
     private stickiNotes: IAppStorage[] = [];
-
+    //zapis do localstorage
     saveData(newNote: IAppStorage) {
         this.stickiNotes.push(newNote);
         localStorage.setItem('note', JSON.stringify(this.stickiNotes));
@@ -27,7 +27,7 @@ export class AppStorage {
             return title
         });
 
-
+        //interface notatki
         const notatka: IAppStorage = {
             id: 1,
             title: buttonAdd.title,
