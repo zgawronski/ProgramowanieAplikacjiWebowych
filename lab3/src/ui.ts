@@ -57,12 +57,7 @@ export class Ui {
         }
     }
 
-<<<<<<< HEAD
-    async customWind(cityName: string = ""){
-
-=======
     async customWind(cityName: string = "") {
->>>>>>> c2b6e77153f047ebf561a7ca6d400466b3f3821c
         const customWind = document.createElement('div');
         customWind.className = "cWind";
         customWind.id = cityName;
@@ -97,9 +92,6 @@ export class Ui {
         const dane4 = document.createElement('div');
         dane4.setAttribute("id", "airpress")
         const newImage = document.createElement('img');
-        const closeButton = document.createElement('button');
-        closeButton.className = "closeButton";
-        closeButton.setAttribute("id", "closeButton");
         newImage.setAttribute("id", "newImage");
         const weatherDane = await app.getCityInfo(cityName);
         if ((localStorage.getItem('weather') !== '') || (localStorage.getItem('weather') !== null) || (localStorage.getItem('weather') !== undefined)) {
@@ -113,10 +105,6 @@ export class Ui {
         dane3.innerHTML = "wilgotność: " + weatherDane.main.humidity + "%";
         dane4.innerHTML = "ciśnienie: " + weatherDane.main.pressure + "hPa";
         closeButton.innerHTML = "X";
-<<<<<<< HEAD
-
-=======
->>>>>>> c2b6e77153f047ebf561a7ca6d400466b3f3821c
 
         container.appendChild(customWind);
         customWind.appendChild(closeButton);
