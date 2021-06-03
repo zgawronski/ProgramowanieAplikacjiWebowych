@@ -18,20 +18,26 @@ export class AppStorage {
         const buttonAdd = document.getElementById('AddButton');
         buttonAdd.addEventListener('click', async (ev: Event) => {
             const takeTitle = <HTMLInputElement>document.getElementById('AddNote');
+            const takeContent = <HTMLInputElement>document.getElementById('content');
+            const contentNote = takeContent.value;
             const title = takeTitle.value;
             if ((title === '') || (this.getNote(title)) || (title === 'null')) { }
             else {
                 takeTitle.value = '';
+                takeContent.value = '';
             }
 
-            return title
+            return {
+                title,
+                contentNote
+            }
         });
 
 
         const notatka: IAppStorage = {
             id: 1,
             title: buttonAdd.title,
-            content: 'buttonAdd.content',
+            content: buttonAdd.contentNote,
             dateOfNote: new Date().toDateString(),
         }
         this.saveData(notatka)

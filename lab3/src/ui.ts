@@ -50,17 +50,14 @@ export class Ui {
             const cityColection = JSON.parse(data) as any[];
             cityColection.forEach((x) => {
                 if (x.toLowerCase() == cityName.toLowerCase())
-                    nameExist = true;
+                nameExist = true;
             });
             return nameExist;
         }
     }
 
     async customWind(cityName: string = ""){
-        // if(cityName=""){
-        // const inputSearch = <HTMLInputElement>document.getElementById('SearchI');
-        // cityName = inputSearch.value;
-        // }
+
         const customWind = document.createElement('div');
         customWind.className = "cWind";
         customWind.setAttribute("id", "customWindId");
@@ -73,6 +70,9 @@ export class Ui {
         const dane4 =document.createElement('div');
         dane4.setAttribute("id", "airpress")
         const newImage = document.createElement('img');
+        const closeButton = document.createElement('button');
+        closeButton.className = "closeButton";
+        closeButton.setAttribute("id", "closeButton");
         newImage.setAttribute("id", "newImage");
         const weatherDane = await app.getCityInfo(cityName);
         const srcImg =  `http://openweathermap.org/img/wn/${weatherDane.weather[0].icon}@2x.png`;
@@ -83,6 +83,8 @@ export class Ui {
         dane2.innerHTML = "temperatura: " + Math.round(weatherDane.main.temp - 273.15).toString() + '&deg;';
         dane3.innerHTML = "wilgotność: " + weatherDane.main.humidity + "%";
         dane4.innerHTML = "ciśnienie: " + weatherDane.main.pressure + "hPa";
+        closeButton.innerHTML = "X";
+
 
         container.appendChild(customWind);
         customWind.appendChild(dane1);
@@ -90,5 +92,18 @@ export class Ui {
         customWind.appendChild(dane2);
         customWind.appendChild(dane3);
         customWind.appendChild(dane4);
+        customWind.appendChild(closeButton);
+
+
     }
+
+
+    closeButtonX(){
+        let xx = document.getElementById('closeButton');
+        xx.addEventListener('click', this.closeButtonX);
+            if(xx) window.close();
+
+
+    }
+
 }
