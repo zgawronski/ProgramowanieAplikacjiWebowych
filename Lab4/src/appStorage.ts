@@ -14,38 +14,36 @@ export class AppStorage {
 
     };
 
-
+    // zczytywanie notatki za pomocą buttona
     async addNote(note: any) {
         const buttonAdd = document.getElementById('AddButton');
-        buttonAdd.addEventListener('click', async (ev: Event) => {
+        buttonAdd.addEventListener('click', async (ev: MouseEvent) => {
             const takeTitle = <HTMLInputElement>document.getElementById('AddNote');
             const takeContent = <HTMLInputElement>document.getElementById('content');
             const contentNote = takeContent.value;
             const title = takeTitle.value;
             if ((title === '') || (title === 'null')) { }
             else {
-                await title;
-                await contentNote;
+
+                //interface notatki
+                const notatka: IAppStorage = {
+                    id: 1 + this.stickiNotes.length,
+                    title: title,
+                    content: contentNote,
+                    dateOfNote: new Date().toDateString(),
+                }
+                this.saveData(notatka)
+
                 takeTitle.value = '';
                 takeContent.value = '';
             }
 
-            return {
-                note
-            }
+            // return {
+            //     note
+            // }
         });
-        console.log();
 
-        //interface notatki
-        const notatka: IAppStorage = {
-            id: 1,
-            title: note.title,
-            content: note.contentNote,
-            dateOfNote: new Date().toDateString(),
-        }
-        this.saveData(notatka)
 
-        console.log(notatka)
     }
 
     // private getNote(newNote: string) {
