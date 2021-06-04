@@ -11,6 +11,7 @@ export class AppStorage {
 
     constructor() {
         this.addNote('note');
+
     };
 
 
@@ -23,6 +24,8 @@ export class AppStorage {
             const title = takeTitle.value;
             if ((title === '') || (title === 'null')) { }
             else {
+                await title;
+                await contentNote;
                 takeTitle.value = '';
                 takeContent.value = '';
             }
@@ -31,12 +34,13 @@ export class AppStorage {
                 note
             }
         });
+        console.log();
 
         //interface notatki
         const notatka: IAppStorage = {
             id: 1,
-            title: note.takeTitle.value,
-            content: note.takeContent.value,
+            title: note.title,
+            content: note.contentNote,
             dateOfNote: new Date().toDateString(),
         }
         this.saveData(notatka)
