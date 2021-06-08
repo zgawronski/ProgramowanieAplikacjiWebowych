@@ -1,10 +1,10 @@
 body {
-  background-image: url("https://media.nationalgeographic.org/assets/photos/000/263/26383.jpg");
+  background-image: url('https://media.nationalgeographic.org/assets/photos/000/263/26383.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   justify-content: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -15,7 +15,7 @@ body {
 }
 
 .titleDiv {
-  font-family: "Gloria Hallelujah", cursive;
+  font-family: 'Gloria Hallelujah', cursive;
   background-color: rgba(169, 169, 169, 0.3);
   width: 70%;
   margin: auto;
@@ -70,22 +70,7 @@ body {
   border: 1px solid #fafafa;
   border-radius: 10px;
   box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.1);
-<<<<<<< HEAD
   position: relative;
-=======
-  .closeButton {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    width: 3ch;
-    height: 3ch;
-    padding: 2px;
-    border-radius: 50%;
-    border: none;
-    color: black;
-    font-weight: bold;
-  }
->>>>>>> c2b6e77153f047ebf561a7ca6d400466b3f3821c
 }
 
 .closeButton {

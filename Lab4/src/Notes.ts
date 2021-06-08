@@ -15,11 +15,7 @@ export class Notes {
     }
 
 
-<<<<<<< HEAD
-    newStickyNote(newNote: string = '') {
-=======
-    newStickyNote(newNote: any): IAppStorage {
->>>>>>> f4af6522cc0a42224f769b2d86895afa7f334264
+    newStickyNote(newNote: any) {
         const noteWindow = document.createElement('div');
         noteWindow.className = 'noteWind';
         noteWindow.setAttribute('id', 'noteWindId');

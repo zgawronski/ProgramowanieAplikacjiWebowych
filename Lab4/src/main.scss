@@ -6,9 +6,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   justify-content: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
 
 .titleDiv {
   font-family: 'Gloria Hallelujah', cursive;
@@ -38,7 +38,7 @@ body {
   color: white;
   border: none;
 }
-.nav-btn-search{
+.nav-btn-search {
   font-family: 'arial';
   width: 13ch;
   height: 6ch;
@@ -95,12 +95,8 @@ body {
   color: white;
   border: 0.2px solid grey;
   padding: 2px;
-  margin-left: 5px;
-  position: absolute;
-  right: 20px;
-  top: 23px;
+  margin: 10px auto 10px auto;
 }
-
 
 .tmp-content {
   width: 50ch;
@@ -109,7 +105,6 @@ body {
   background-color: rgb(9, 50, 83);
   color: white;
   border: 0.2px solid grey;
-
 }
 .cWind {
   background: rgba(255, 255, 255, 0.3);
