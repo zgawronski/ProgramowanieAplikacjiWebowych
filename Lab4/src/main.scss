@@ -106,39 +106,34 @@ body {
   color: white;
   border: 0.2px solid grey;
 }
-.cWind {
-  background: rgba(255, 255, 255, 0.3);
-  width: 100%;
-  width: 250px;
-  height: 220px;
-  padding: 10px;
-  margin-right: 20px;
-  top: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #000000;
-  font-weight: bold;
-  border: 1px solid #fafafa;
-  border-radius: 10px;
-  box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.1);
-}
 
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
 
   position: relative;
-  width: 50%;
+  width: 960px;
   margin: auto;
 }
 
 .noteWind {
-  width: 50ch;
+  width: 300px;
   height: 20ch;
   text-align: center;
   background-color: rgb(9, 50, 83);
   color: white;
   border: 0.2px solid grey;
   margin-right: 20px;
+  h1 {
+    background-color: rgba(169, 169, 169, 0.3);
+    font-size: 1rem;
+    margin: 0;
+    padding: 10px;
+    height: 20%;
+  }
+  h2 {
+    font-size: 0.9rem;
+  }
+  h3 {
+    font-size: 0.7rem;
+  }
 }
