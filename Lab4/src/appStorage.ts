@@ -1,21 +1,26 @@
 import { IAppStorage } from './interfaces/IAppStorage';
+import { Notes } from './Notes';
 export class AppStorage {
     private stickiNotes: IAppStorage[] = [];
     //zapis do localstorage
     saveData(newNote: IAppStorage) {
+        const checker = JSON.parse(localStorage.getItem('note')) as IAppStorage[];
+        if (checker != null) {
+            checker.forEach((x: IAppStorage) => this.stickiNotes.push(x));
+        }
         this.stickiNotes.push(newNote);
         localStorage.setItem('note', JSON.stringify(this.stickiNotes));
-        console.log(this.stickiNotes);
-
+        const containerOld = document.getElementById('container');
+        containerOld.innerHTML = '';
+        const refresher = new Notes();
     }
 
     constructor() {
-        this.addNote('note');
-
-    };
+        this.addNote();
+    }
 
     // zczytywanie notatki za pomocą buttona
-    async addNote(note: any) {
+    async addNote() {
         const buttonAdd = document.getElementById('AddButton');
         buttonAdd.addEventListener('click', async (ev: MouseEvent) => {
             const takeTitle = <HTMLInputElement>document.getElementById('AddNote');
@@ -38,26 +43,8 @@ export class AppStorage {
                 takeContent.value = '';
             }
 
-            // return {
-            //     note
-            // }
         });
-
-
     }
-
-    // private getNote(newNote: string) {
-    //     let nameExist = false;
-    //     const data = localStorage.getItem('note');
-    //     if (data != null) {
-    //         const noteColection = JSON.parse(data) as any[];
-    //         noteColection.forEach((x) => {
-    //             if (x.toLowerCase() == newNote.toLowerCase())
-    //                 nameExist = true;
-    //         });
-    //         return nameExist;
-    //     }
-    // }
 
 }
 

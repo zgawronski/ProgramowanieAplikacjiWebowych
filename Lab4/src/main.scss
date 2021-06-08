@@ -127,8 +127,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+
   position: relative;
   width: 50%;
   margin: auto;
+}
+
+.noteWind {
+  width: 50ch;
+  height: 20ch;
+  text-align: center;
+  background-color: rgb(9, 50, 83);
+  color: white;
+  border: 0.2px solid grey;
+  margin-right: 20px;
 }

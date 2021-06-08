@@ -15,22 +15,21 @@ export class Notes {
     }
 
 
-    newStickyNote(newNote: any) {
+    newStickyNote(newNote: IAppStorage) {
         const noteWindow = document.createElement('div');
         noteWindow.className = 'noteWind';
         noteWindow.setAttribute('id', 'noteWindId');
-
-
-
-        //const newNoteTitle = appStorage.getNote(newNote);
-
         const container = document.getElementById('container');
 
-        const noteTitle = document.createElement('div');
-
-        //noteTitle.innerHTML = newNoteTitle;
+        const noteTitle = document.createElement('h1');
+        const noteContent = document.createElement('h2');
+        const noteDate = document.createElement('h3');
+        noteTitle.innerHTML = newNote.title;
+        noteContent.innerHTML = newNote.content;
+        noteDate.innerHTML = newNote.dateOfNote;
         container.appendChild(noteWindow);
         noteWindow.appendChild(noteTitle);
-
+        noteWindow.appendChild(noteContent);
+        noteWindow.appendChild(noteDate);
     }
 }
