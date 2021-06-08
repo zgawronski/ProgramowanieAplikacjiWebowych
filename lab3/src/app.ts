@@ -14,7 +14,6 @@ export class App {
         const weatherResponse = await fetch(openWeatherUrl);
         const weatherData = await weatherResponse.json();
 
-        console.log(weatherData);
         return weatherData;
     }
 

@@ -1,4 +1,5 @@
 import { AppStorage } from './appStorage';
+import { IAppStorage } from './interfaces/IAppStorage';
 const appStorage = new AppStorage();
 export class Notes {
     constructor() {
@@ -14,10 +15,16 @@ export class Notes {
     }
 
 
+<<<<<<< HEAD
     newStickyNote(newNote: string = '') {
+=======
+    newStickyNote(newNote: any): IAppStorage {
+>>>>>>> f4af6522cc0a42224f769b2d86895afa7f334264
         const noteWindow = document.createElement('div');
         noteWindow.className = 'noteWind';
         noteWindow.setAttribute('id', 'noteWindId');
+
+
 
         //const newNoteTitle = appStorage.getNote(newNote);
 

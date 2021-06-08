@@ -70,6 +70,9 @@ body {
   border: 1px solid #fafafa;
   border-radius: 10px;
   box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
+  position: relative;
+=======
   .closeButton {
     position: absolute;
     top: 5%;
@@ -82,4 +85,18 @@ body {
     color: black;
     font-weight: bold;
   }
+>>>>>>> c2b6e77153f047ebf561a7ca6d400466b3f3821c
+}
+
+.closeButton {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background-color: lightyellow;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

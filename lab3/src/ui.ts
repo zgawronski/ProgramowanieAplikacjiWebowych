@@ -51,7 +51,7 @@ export class Ui {
             const cityColection = JSON.parse(data) as any[];
             cityColection.forEach((x) => {
                 if (x.toLowerCase() == cityName.toLowerCase())
-                    nameExist = true;
+                nameExist = true;
             });
             return nameExist;
         }
@@ -113,6 +113,18 @@ export class Ui {
         customWind.appendChild(dane2);
         customWind.appendChild(dane3);
         customWind.appendChild(dane4);
+        customWind.appendChild(closeButton);
+
+
+    }
+
+
+    closeButtonX(){
+        let xx = document.getElementById('closeButton');
+        xx.addEventListener('click', this.closeButtonX);
+            if(xx) window.close();
+
+
     }
 
 }
