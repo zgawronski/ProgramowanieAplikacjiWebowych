@@ -14,10 +14,10 @@ export class Notes {
     }
 
 
-    newStickyNote(newNote: string = "") {
+    newStickyNote(newNote: string = '') {
         const noteWindow = document.createElement('div');
-        noteWindow.className = "noteWind";
-        noteWindow.setAttribute("id", "noteWindId");
+        noteWindow.className = 'noteWind';
+        noteWindow.setAttribute('id', 'noteWindId');
 
         //const newNoteTitle = appStorage.getNote(newNote);
 
