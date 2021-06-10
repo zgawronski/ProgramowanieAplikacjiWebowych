@@ -1,8 +1,7 @@
 //import { App } from './app';
 import './main.scss';
 import { Notes } from './Notes';
-// import firebase from 'firebase';
-// import { firebaseConfig } from './config'
+// c
 
 
 const stickyNote = new Notes();
