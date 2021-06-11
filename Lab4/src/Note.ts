@@ -19,11 +19,13 @@ export class Note {
             const title = takeTitle.value;
             const tablica = JSON.parse(localStorage.getItem('note')) as IAppStorage[];
             let howMany = 0;
+
             if (tablica !== null) {
                 howMany = tablica.length;
             } else {
                 howMany = 0;
             }
+
             if ((title === '') || (title === 'null')) { }
             else {
                 //interface notatki
