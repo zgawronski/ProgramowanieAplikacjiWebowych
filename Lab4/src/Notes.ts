@@ -1,9 +1,12 @@
+import { AppFirebase } from './appFirebase';
 import { AppStorage } from './appStorage';
 import { IAppStorage } from './interfaces/IAppStorage';
+
 const appStorage = new AppStorage();
 export class Notes {
     constructor() {
         this.loadFromStorage();
+        this.loadFromFirebase();
     };
 
     private loadFromStorage() {
@@ -12,6 +15,14 @@ export class Notes {
             const noteColection = JSON.parse(data) as any[];
             noteColection.forEach(x => this.newStickyNote(x));
         }
+    }
+
+    async loadFromFirebase() {
+        const data = new AppFirebase;
+        const nota = await data.getNotes();
+        nota.forEach((x: any) => this.newStickyNote(x.data));
+        console.log(data.getNotes());
+
     }
 
 
@@ -31,5 +42,6 @@ export class Notes {
         noteWindow.appendChild(noteTitle);
         noteWindow.appendChild(noteContent);
         noteWindow.appendChild(noteDate);
+        const refresher = new Notes();
     }
 }
