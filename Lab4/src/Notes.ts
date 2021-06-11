@@ -21,8 +21,6 @@ export class Notes {
         const data = new AppFirebase;
         const nota = await data.getNotes();
         nota.forEach((x: any) => this.newStickyNote(x.data));
-        console.log(data.getNotes());
-
     }
 
 

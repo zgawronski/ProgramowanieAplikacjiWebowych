@@ -12,9 +12,6 @@ export class AppStorage {
         }
         stickiNotes.push(newNote);
         localStorage.setItem('note', JSON.stringify(stickiNotes));
-        // const containerOld = document.getElementById('container');
-        // containerOld.innerHTML = '';
-        //const refresher = new Notes();
     }
 
 }
