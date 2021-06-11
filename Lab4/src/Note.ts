@@ -1,8 +1,8 @@
-import { AppStorage } from "./appStorage";
+import { AppStorage } from './appStorage';
 import { IAppStorage } from './interfaces/IAppStorage'
-import { AppFirebase } from "./appFirebase";
-import { config } from "./config"
-import { Notes } from "./Notes";
+import { AppFirebase } from './appFirebase';
+import { config } from './config'
+import { Notes } from './Notes';
 
 
 export class Note {
