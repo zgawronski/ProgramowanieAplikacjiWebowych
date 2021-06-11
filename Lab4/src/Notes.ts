@@ -40,6 +40,5 @@ export class Notes {
         noteWindow.appendChild(noteTitle);
         noteWindow.appendChild(noteContent);
         noteWindow.appendChild(noteDate);
-        const refresher = new Notes();
     }
 }
