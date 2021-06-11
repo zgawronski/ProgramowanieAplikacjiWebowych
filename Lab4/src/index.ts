@@ -1,10 +1,12 @@
 //import { App } from './app';
 import './main.scss';
 import { Notes } from './Notes';
+import { Note } from './Note';
+
 // c
 
-
-const stickyNote = new Notes();
+const stickyNote = new Note();
+const stickyNotes = new Notes();
 //const app = new App();
 //const notes = new Notes();
 

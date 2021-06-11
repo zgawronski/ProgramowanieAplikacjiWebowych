@@ -37,6 +37,13 @@ export class AppFirebase {
         return this.db.collection('notes').doc(id).get().then((res: any) => res.data())
     }
 
+    async getNotes() {
+
+        const collection = await this.db.collection('notes').get().then((res: any) => ({ size: res.size, docs: res.docs }));
+
+        return collection.docs.map((doc: any) => ({ id: doc.id, data: doc.data() }));
+
+    }
 
 
 }
