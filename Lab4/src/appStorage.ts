@@ -1,6 +1,11 @@
 import { IAppStorage } from './interfaces/IAppStorage';
 import { Notes } from './Notes';
 export class AppStorage {
+
+    constructor() {
+        this.addNote();
+    }
+
     //zapis do localstorage
     saveData(newNote: IAppStorage) {
         const stickiNotes: IAppStorage[] = [];
@@ -15,9 +20,6 @@ export class AppStorage {
         const refresher = new Notes();
     }
 
-    constructor() {
-        this.addNote();
-    }
 
     // zczytywanie notatki za pomocą buttona
     async addNote() {
