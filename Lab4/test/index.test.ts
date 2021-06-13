@@ -11,7 +11,7 @@ describe('AppFirebase', () => {
     }
     const warehouse = new AppFirebase;
     warehouse.addNote(notatka);
-    it('local 0', () => {
+    it('test 0', () => {
         const ret = warehouse.getNote('123')
         expect(ret).toBe(notatka);
     });
