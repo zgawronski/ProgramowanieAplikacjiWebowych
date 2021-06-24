@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "jest",
-    "test-coverag": "jest --coverage index",
+    "test-coverage": "jest --coverage index",
     "start": "webpack-dev-server --open --content-base src",
     "build": "webpack"
   },
@@ -29,6 +29,9 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "firebase": "^8.6.3"
+    "@types/puppeteer": "^5.4.3",
+    "firebase": "^8.6.3",
+    "puppeteer": "^10.0.0",
+    "puppeteer-tsd": "0.0.2"
   }
 }

@@ -2,6 +2,8 @@ import { IAppStorage } from '../src/interfaces/IAppStorage'
 import { TestForJest } from '../src/TestForJest'
 import { AppFirebase } from '../src/appFirebase'
 
+import * as puppeteer from 'puppeteer';
+
 
 describe('addAB', () => {
     let z: TestForJest;
@@ -30,9 +32,9 @@ describe('addAB', () => {
     it('test 4', () => {
 
         let x = 'a';
-        let y = z.chckTab(x);
+        const ret = z.chckTab(x);
+        const y = true;
 
-        const ret = true;
         expect(ret).toBe(y);
     });
 
@@ -52,4 +54,12 @@ describe('addNote', () => {
         const notePrint = 'ok' + note;
         expect(res).toBe(notePrint);
     })
-})
+});
+
+// (async () => {
+//     const browser = await puppeteer.launch();
+//     const page = await browser.newPage();
+//     await page.goto('http://localhost:8080');
+//     await
+
+// })
