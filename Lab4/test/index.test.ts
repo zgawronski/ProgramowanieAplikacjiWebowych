@@ -27,6 +27,14 @@ describe('addAB', () => {
         const ret = z.newN(i);
         expect(ret).toBe('gierek');
     });
+    it('test 4', () => {
+
+        let x = 'a';
+        let y = z.chckTab(x);
+
+        const ret = true;
+        expect(ret).toBe(y);
+    });
 
 })
 
@@ -39,7 +47,7 @@ describe('addNote', () => {
         dateOfNote: new Date().toDateString(),
     }
     let notatnik = new AppFirebase();
-    it('test', async () => {
+    it('test 5', async () => {
         const res = await notatnik.addNote(note)
         const notePrint = 'ok' + note;
         expect(res).toBe(notePrint);

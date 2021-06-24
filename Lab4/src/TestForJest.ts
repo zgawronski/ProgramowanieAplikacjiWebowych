@@ -9,5 +9,9 @@ export class TestForJest {
         return a + b
     }
 
-
+    chckTab(a: string) {
+        const tab = ['a', 'b', 'c']
+        if (tab.includes(a))
+            return true
+    }
 }
