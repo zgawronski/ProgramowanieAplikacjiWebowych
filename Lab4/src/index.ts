@@ -4,3 +4,7 @@ import { Note } from './Note';
 
 const stickyNote = new Note();
 const stickyNotes = new Notes();
+
+
+
+

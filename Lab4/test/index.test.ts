@@ -1,18 +1,47 @@
 import { IAppStorage } from '../src/interfaces/IAppStorage'
+import { TestForJest } from '../src/TestForJest'
 import { AppFirebase } from '../src/appFirebase'
 
 
-describe('AppFirebase', () => {
-    const notatka: IAppStorage = {
-        id: 123,
-        title: "title",
-        content: "test content",
+describe('addAB', () => {
+    let z: TestForJest;
+    beforeAll(() => {
+        z = new TestForJest();
+    })
+    it('test 1', () => {
+        const x = 1;
+        const y = 1;
+        z.addAB(x, y);
+        const ret = z.addAB(x, y);
+        expect(ret).toBe(2);
+    });
+    it('test 2', () => {
+        const x = "szedł grześ ";
+        const y = "przez wieś";
+        z.addAB(x, y);
+        const ret = z.addAB(x, y);
+        expect(ret).toBe("szedł grześ przez wieś");
+    });
+    it('test 3', () => {
+        const i = 'gierek';
+        const ret = z.newN(i);
+        expect(ret).toBe('gierek');
+    });
+
+})
+
+describe('addNote', () => {
+
+    const note: IAppStorage = {
+        id: 1,
+        title: 'stringi',
+        content: 'figi',
         dateOfNote: new Date().toDateString(),
     }
-    const warehouse = new AppFirebase;
-    warehouse.addNote(notatka);
-    it('test 0', () => {
-        const ret = warehouse.getNote('123')
-        expect(ret).toBe(notatka);
-    });
-});
+    let notatnik = new AppFirebase();
+    it('test', async () => {
+        const res = await notatnik.addNote(note)
+        const notePrint = 'ok' + note;
+        expect(res).toBe(notePrint);
+    })
+})

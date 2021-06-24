@@ -41,4 +41,5 @@ export class Notes {
         noteWindow.appendChild(noteContent);
         noteWindow.appendChild(noteDate);
     }
+
 }

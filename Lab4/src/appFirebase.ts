@@ -18,18 +18,20 @@ export class AppFirebase {
 
 
     async addNote(note: IAppStorage) {
-        const res = await this.db.collection('notes').add(note);
+        await this.db.collection('notes').add(note);
+        const roger = 'ok' + note;
+        return roger;
 
     }
 
 
     async deleteNote(id: string) {
-        const res = await this.db.collection('notes').doc(id).delete();
+        await this.db.collection('notes').doc(id).delete();
     }
 
 
     async updateNote(id: string, note: IAppStorage) {
-        const res = await this.db.collection('notes').doc(id).update(note);
+        await this.db.collection('notes').doc(id).update(note);
     }
 
 
