@@ -29,6 +29,9 @@ export class Notes {
         noteWindow.className = 'noteWind';
         noteWindow.setAttribute('id', 'noteWindId');
         const container = document.getElementById('container');
+        const closeButton = document.createElement('button') as HTMLButtonElement;
+        closeButton.className = 'closeButton';
+        closeButton.setAttribute('id', 'closeButtonId');
 
         const noteTitle = document.createElement('h1');
         const noteContent = document.createElement('h2');
@@ -36,7 +39,10 @@ export class Notes {
         noteTitle.innerHTML = newNote.title;
         noteContent.innerHTML = newNote.content;
         noteDate.innerHTML = newNote.dateOfNote;
+        closeButton.innerHTML = 'X';
+
         container.appendChild(noteWindow);
+        noteWindow.appendChild(closeButton);
         noteWindow.appendChild(noteTitle);
         noteWindow.appendChild(noteContent);
         noteWindow.appendChild(noteDate);
